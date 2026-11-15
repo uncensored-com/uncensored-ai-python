@@ -7,8 +7,8 @@ _CONFIG_FILE = _CONFIG_DIR / "config.json"
 
 def set_api_key(key: str):
     """Set the API key both in memory and in the config file."""
-    from . import api_key as global_api_key
-    global_api_key = key
+    import uncensored
+    uncensored.api_key = key
 
     _CONFIG_DIR.mkdir(parents=True, exist_ok=True)
     data = {
@@ -39,8 +39,8 @@ def get_api_key() -> str:
 
 def set_base_url(url: str):
     """Set the base URL for API calls."""
-    from . import base_url as global_base_url
-    global_base_url = url
+    import uncensored
+    uncensored.base_url = url
 
 def get_base_url() -> str:
     """Get the base URL for API calls."""
